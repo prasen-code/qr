@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Second-Based Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+      padding-top: 100px;
+    }
+    #message {
+      font-size: 24px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🕒 Dynamic Info Per Second</h1>
+  <div id="message">Loading...</div>
+
+  <script>
+    const messages = Array.from({ length: 60 }, (_, i) => `This is message for second ${i}`);
+
+    function updateMessage() {
+      const now = new Date();
+      const sec = now.getSeconds();
+      document.getElementById("message").innerText = messages[sec];
+    }
+
+    updateMessage();
+    setInterval(updateMessage, 1000);
+  </script>
+
+</body>
+</html>
